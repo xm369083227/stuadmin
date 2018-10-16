@@ -16,8 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.conf.urls import include,url
 from app01.views import classes,students,teachers
+from app01.views import classes,students,teachers
 from django.urls import path
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    #url(r'^classes/', classes.classes),
+    url(r'^get_stu/', students.get_stu),
+    url(r'^add_stu/', students.add_stu),
 ]

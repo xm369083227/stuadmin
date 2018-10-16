@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+         body{
+            margin: 0;
+        }
+        .menu{
+            display: block;
+            padding: 5px;
+
+        }
+    </style>
+    {% block css %}{% endblock %}
+    {% block js %}{% endblock %}
+</head>
+<body>
+     <div style="height: 48px;background-color: black;color: white">
+        Weicome to user_info system!
+    </div>
+
+        <div style="position: absolute;top:48px;bottom: 0;left: 0;width: 200px;background-color: brown;">
+            <a class="menu" href="">学生界面</a>
+            <a class="menu" href="">班级界面</a>
+        </div>
+        <div style="position:absolute;top:48px;left: 210px;bottom: 0;right: 0;overflow: auto">
+            {% block content %}{% endblock %}
+        </div>
+</body>
+</html>
+</html>
