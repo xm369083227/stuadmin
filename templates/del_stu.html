@@ -1,0 +1,42 @@
+{% extends "master.html" %}
+{% block css %}
+    <style>
+        .del_modal{
+            margin: 0;
+            padding: 0;
+            width: 400px;
+            height: 200px;
+            border: 1px solid #efefef;
+            text-align: center;
+            line-height: 200px;
+        }
+    </style>
+{% endblock %}
+{% block content %}
+    <div class="del_modal" nid={{ stu_obj.id }}>
+        <h2>是否确定删除用户：{{ stu_obj.username }}</h2>
+        <button class="del_btn">确定</button>
+        <button class="cancel_btn">取消</button>
+    </div>
+{% endblock %}
+{% block js %}
+    <script src="/static/jquery-1.8.1.min.js"></script>
+    <script>
+        $(function(){
+            $(".del_btn").click(function(){
+                nid = $(".del_modal").attr("nid");//把要删除的这一行的id获取到传到后台，以此为依据删除
+                $.ajax({
+                    url:"/del_stu/",
+                    type:"POST",
+                    data:{"nid":nid},
+                    success:function(){
+                        window.location.href = "/get_stu/";
+                    }
+                })
+            })
+            $(".cancel_btn").click(function(){
+                window.location.href = "/get_stu/";
+            })
+        })
+    </script>
+{% endblock %}

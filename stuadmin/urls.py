@@ -24,4 +24,6 @@ urlpatterns = [
     #url(r'^classes/', classes.classes),
     url(r'^get_stu/', students.get_stu),
     url(r'^add_stu/', students.add_stu),
+    url(r'^edit_stu/', students.edit_stu),
+    url(r'^del_stu/', students.del_stu),
 ]
